@@ -7,8 +7,8 @@
     "node": "18.x"
   },
   "scripts": {
-    "start": "npm run reset && node ./index.js",
-    "dev": "npm run db:init && nodemon ./index.js",
+    "start": "npm run reset && node ./src/server.js",
+    "dev": "npm run db:init && nodemon  ./src/server.js",
     "db:init": "npx sequelize db:create && npm run db:migrate && npm run db:seed",
     "db:migrate": "npx sequelize-cli db:migrate",
     "db:seed": "npx sequelize-cli db:seed:all",
