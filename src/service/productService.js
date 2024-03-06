@@ -23,12 +23,13 @@ const readd = async () => {
 
 const readdOne = async (id) => {
   try {
-    const products = await product.findByPk(id);
+    const products = await product.findOne({where:{ id: id.id }});
     if (!products) {
       return null
     }
     return camelize(products.dataValues);
   } catch (error) {
+    console.log(error);
     return null
   }
 };
@@ -37,7 +38,7 @@ const updateProduct = async (id, { name, brand, model, price, color }) => {
   try {
     const [rowsUpdated] = await product.update(
       { name, brand, model, price, color },
-      { where: { id } }
+      { where: { id: id.id } }
     );
     if (rowsUpdated === 0) {
       return null
@@ -50,7 +51,7 @@ const updateProduct = async (id, { name, brand, model, price, color }) => {
 
 const delet = async (id) => {
   try {
-    const rowsDeleted = await Product.destroy({ where: { id } });
+    const rowsDeleted = await Product.destroy({ where: { id: id.id } });
     if (rowsDeleted === 0) {
       return null
     }
