@@ -12,7 +12,7 @@ const createProduct = async ({ name, brand, model, price, color }) => {
 
 const readd = async () => {
   try {
-    console.log(product);
+    console.log(product, '1');
     const products = await product.findAll();
     const productValues = products.map(product => product.dataValues);
     return camelize(productValues);

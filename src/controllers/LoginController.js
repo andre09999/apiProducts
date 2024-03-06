@@ -15,6 +15,7 @@ const created = async (req, res) => {
 
 const ReadOne = async (req, res) => {
   const response = await LoginService.readdOne(req.body)
+  
   if (!response|| response === null) {
     return res.status(404).json({ message: 'Usuário não encontrado' })
   }
