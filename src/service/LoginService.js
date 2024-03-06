@@ -7,7 +7,7 @@ const createUser = async (data) => {
     const createdUser = await Users.create({  username: data.username, password: data.password });
     return camelize(createdUser);
   } catch (error) {
-    throw new Error('Erro ao criar usuário: ' + error.message);
+    return null
   }
 };
 
@@ -15,11 +15,11 @@ const readdOne = async (dados) => {
   try {
     const user = await Users.findOne({ where: { username: dados.username, password: dados.password } });
     if (!user) {
-      throw new Error('Usuário não encontrado');
+      return null
     }
     return camelize(user.dataValues);
   } catch (error) {
-    throw new Error('Erro ao ler usuário: ' + error.message);
+    return null
   }
 };
 
@@ -27,7 +27,7 @@ const readUsername = async (dados) => {
   try {
     const user = await Users.findOne({ where: { username: dados.username } });
     if (!user) {
-      throw new Error('Usuário não encontrado');
+      return null
     }
     return camelize(user.dataValues);
   } catch (error) {
@@ -42,7 +42,7 @@ const updateProduct = async (dados) => {
       { where: { username: dados.oldUsername, password: dados.oldPassword } }
     );
     if (rowsUpdated === 0) {
-      throw new Error('Usuário não encontrado');
+      return null
     }
     return { username: dados.newUsername, password: dados.newPassword };
   } catch (error) {
@@ -54,7 +54,7 @@ const deleteUser = async (dados) => {
   try {
     const rowsDeleted = await Users.destroy({ where: { username: dados.username } });
     if (rowsDeleted === 0) {
-      throw new Error('Usuário não encontrado');
+      return null
     }
     return { username: dados.username };
   } catch (error) {

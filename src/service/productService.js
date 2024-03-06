@@ -25,7 +25,7 @@ const readdOne = async (id) => {
   try {
     const products = await product.findByPk(id);
     if (!products) {
-      throw new Error('Produto não encontrado');
+      return null
     }
     return camelize(products.dataValues);
   } catch (error) {
@@ -40,7 +40,7 @@ const updateProduct = async (id, { name, brand, model, price, color }) => {
       { where: { id } }
     );
     if (rowsUpdated === 0) {
-      throw new Error('Produto não encontrado');
+      return null
     }
     return { id, name, brand, model, price, color };
   } catch (error) {
@@ -52,7 +52,7 @@ const delet = async (id) => {
   try {
     const rowsDeleted = await Product.destroy({ where: { id } });
     if (rowsDeleted === 0) {
-      throw new Error('Produto não encontrado');
+      return null
     }
     return { id };
   } catch (error) {
