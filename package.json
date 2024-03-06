@@ -1,0 +1,37 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/server.js",
+  "engines": {
+    "node": "18.x"
+  },
+  "scripts": {
+    "start": "npm run reset && node ./index.js",
+    "dev": "npm run db:init && nodemon ./index.js",
+    "db:init": "npx sequelize db:create && npm run db:migrate && npm run db:seed",
+    "db:migrate": "npx sequelize-cli db:migrate",
+    "db:seed": "npx sequelize-cli db:seed:all",
+    "reset": "npx sequelize-cli db:migrate:undo:all && npm run db:init",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vercel/postgres": "^0.7.2",
+    "camelize": "^1.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "4.17.3",
+    "joi": "^17.12.2",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "3.0.0",
+    "nodemon": "^3.1.0",
+    "pg": "^8.11.3",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.37.1"
+  },
+  "devDependencies": {
+    "sequelize-cli": "6.6.1"
+  }
+}
