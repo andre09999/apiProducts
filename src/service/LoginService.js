@@ -31,7 +31,7 @@ const readUsername = async (dados) => {
     }
     return camelize(user.dataValues);
   } catch (error) {
-    throw new Error('Erro ao ler usuário: ' + error.message);
+   return null
   }
 };
 
@@ -46,7 +46,7 @@ const updateProduct = async (dados) => {
     }
     return { username: dados.newUsername, password: dados.newPassword };
   } catch (error) {
-    throw new Error('Erro ao atualizar usuário: ' + error.message);
+    return null
   }
 };
 
@@ -58,7 +58,7 @@ const deleteUser = async (dados) => {
     }
     return { username: dados.username };
   } catch (error) {
-    throw new Error('Erro ao deletar usuário: ' + error.message);
+    return null
   }
 };
 

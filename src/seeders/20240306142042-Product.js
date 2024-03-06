@@ -9,7 +9,7 @@ module.exports = {
         password: 'password123'
       },
       {
-        username: 'visitante',
+        username: 'visitantes',
         password: 'password2'
       }
     ], {});

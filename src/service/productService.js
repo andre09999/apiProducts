@@ -6,7 +6,7 @@ const createProduct = async ({ name, brand, model, price, color }) => {
     const createdProduct = await product.create({ name, brand, model, price, color });
     return camelize(createdProduct);
   } catch (error) {
-    throw new Error('Erro ao criar produto: ' + error.message);
+    return null
   }
 };
 
@@ -17,7 +17,7 @@ const readd = async () => {
     const productValues = products.map(product => product.dataValues);
     return camelize(productValues);
   } catch (error) {
-    throw new Error('Erro ao ler produtos: ' + error.message);
+    return null
   }
 };
 
@@ -29,7 +29,7 @@ const readdOne = async (id) => {
     }
     return camelize(products.dataValues);
   } catch (error) {
-    throw new Error('Erro ao ler produto: ' + error.message);
+    return null
   }
 };
 
@@ -44,7 +44,7 @@ const updateProduct = async (id, { name, brand, model, price, color }) => {
     }
     return { id, name, brand, model, price, color };
   } catch (error) {
-    throw new Error('Erro ao atualizar produto: ' + error.message);
+    return null
   }
 };
 
@@ -56,7 +56,7 @@ const delet = async (id) => {
     }
     return { id };
   } catch (error) {
-    throw new Error('Erro ao deletar produto: ' + error.message);
+    return null
   }
 };
 
