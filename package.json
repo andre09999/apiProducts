@@ -8,7 +8,7 @@
   },
   "scripts": {
     "start": "npm run reset && node ./src/server.js",
-    "dev": "nodemon  ./src/server.js && npm run db:init",
+    "dev": "nodemon  ./src/server.js ",
     "db:init": "npm run db:migrate",
     "db:migrate": "npx sequelize-cli db:migrate",
     "db:seed": "npx sequelize-cli db:seed:all",
