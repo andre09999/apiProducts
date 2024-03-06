@@ -6,14 +6,14 @@ const validateProduct = require('../middlewares/validaçãoDeDados');
 const router = express.Router();
 
 
-router.post('/', validateProduct, postController.created);
+router.post('/', validateToken , validateProduct, postController.created);
 
 router.get('/:id', postController.ReadOne);
 
 router.get('/', postController.Read);
 
-router.put('/:id', validateProduct, postController.update);
+router.put('/:id', validateToken, validateProduct, postController.update);
 
-router.delete('/:id', postController.Delete);
+router.delete('/:id', validateToken,  postController.Delete);
 
 module.exports = router;

@@ -19,7 +19,7 @@ const Read = async (_req, res) => {
 const ReadOne = async (req, res) => {
   const response = await productService.readdOne(req.params)
   if (!response|| response === null) {
-    return res.status(404).json({ message: 'Usuário não encontrado' })
+    return res.status(404).json({ message: 'Produto não encontrado' })
   }
   return res.status(200).json(response)
 }
@@ -28,9 +28,9 @@ const update = async (req, res) => {
   const { id } = req.params;
   const response = await productService.updateProduct(id ,req.body)
   if (!response|| response === null) {
-    return res.status(404).json({ message: 'Usuário não encontrado' })
+    return res.status(404).json({ message: 'Produto não encontrado' })
   }
-  return res.status(201).json({messagem: 'Usuário atualizado com sucesso!' })
+  return res.status(201).json({messagem: 'Produto atualizado com sucesso!' })
 }
 
 const Delete = async (req, res) => {
