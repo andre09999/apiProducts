@@ -35,6 +35,7 @@ const update = async (req, res) => {
 
 const Delete = async (req, res) => {
   const { id } = req.params;
+  
   const response = await productService.delet(id)
   if (!response|| response === null) {
     return res.status(400).json({mensage: "ocorreu um erro tente novamente"})

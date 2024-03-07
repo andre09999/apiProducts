@@ -51,12 +51,13 @@ const updateProduct = async (id, { name, brand, model, price, color }) => {
 
 const delet = async (id) => {
   try {
-    const rowsDeleted = await Product.destroy({ where: { id: id.id } });
+    const rowsDeleted = await product.destroy({ where: { id: id } });
     if (rowsDeleted === 0) {
       return null
     }
     return { id };
   } catch (error) {
+    console.log(error);
     return null
   }
 };
