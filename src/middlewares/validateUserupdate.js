@@ -8,7 +8,6 @@ const userSchema = Joi.object({
 })
 
 function validateProduct(req, res, next) {
-  console.log(req.body);
   const validationResult = userSchema.validate(req.body);
   if (validationResult.error) {
     return res.status(400).json({message: "dados incorretos"})

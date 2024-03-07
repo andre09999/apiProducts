@@ -19,7 +19,6 @@ const readdOne = async (dados) => {
     }
     return camelize(user.dataValues);
   } catch (error) {
-    console.log(error);
     return null
   }
 };
