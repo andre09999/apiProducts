@@ -35,7 +35,7 @@ const update = async (req, res) => {
 
 const Delete = async (req, res) => {
 
-  const response = await LoginService.delet(req.body)
+  const response = await LoginService.deleteUser(req.body)
   if (!response|| response === null) {
     return res.status(400).json({mensage: "ocorreu um erro tente novamente"})
   }

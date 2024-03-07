@@ -7,7 +7,8 @@ const userSchema = Joi.object({
   oldPassword: Joi.string().required(),
 })
 
-function validateProduct(req,res,next) {
+function validateProduct(req, res, next) {
+  console.log(req.body);
   const validationResult = userSchema.validate(req.body);
   if (validationResult.error) {
     return res.status(400).json({message: "dados incorretos"})
