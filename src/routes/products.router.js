@@ -10,7 +10,7 @@ router.post('/', validateToken , validateProduct, postController.created);
 
 router.get('/:id', postController.ReadOne);
 
-router.post('/login', postController.Read);
+router.get('/', postController.Read);
 
 router.put('/:id', validateToken, validateProduct, postController.update);
 

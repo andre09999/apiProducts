@@ -9,7 +9,7 @@ const router = express.Router();
 
 router.post('/', validateProduct, postlogin.created);
 
-router.get('/', validateProduct , postlogin.ReadOne);
+router.post('/login', validateProduct , postlogin.ReadOne);
 
 router.put('/',validateToken, validateupdateProduct, postlogin.update);
 
